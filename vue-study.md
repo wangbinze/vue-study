@@ -1,4 +1,4 @@
-
+#	基础
 
 ## 	组件基础
 * 因为**组件是可复用的 Vue 实例**，所以它们与 new Vue 接收相同的选项，例如 data、computed、watch、methods 以及生命周期钩子等。仅有的例外是像 el 这样根实例特有的选项。
@@ -123,7 +123,7 @@
 	
 
 ##	处理边界情况
-###	访问元素&组件
+###		访问元素&组件
 * 在绝大多数情况下，我们最好不要触达另一个组件实例内部或手动操作DOM元素。
 * 访问根实例
 	* 在每个 new Vue 实例的子组件中，其根实例可以通过 $root 属性进行访问。 
@@ -139,4 +139,65 @@
 	* $refs 只会在组件渲染完成之后生效，并且它们不是响应式的。这仅作为一个用于直接操作子组件的“逃生舱”——你应该避免在模板或计算属性中访问 $refs。
 
 * 依赖注入
-	* 
+
+
+###		程序化的事件侦听器
+	* 通过 $on(eventName, eventHandler) 侦听一个事件
+	* 通过 $once(eventName, eventHandler) 一次性侦听一个事件
+	* 通过$pff(eventName, eventHandler) 停止侦听一个事件
+
+###		循环引用
+* 递归组件
+	* 组件时可以在它们自己的模板中调用自身的。不过它们只能通过name选项来做这件事：
+		* `name: 'unique-name-of-my-component'`
+	* 当使用Vue.component全局注册一个组件时，这个全局的ID会自动设置为该组件的name选项。
+
+* 组件之间的循环引用
+	
+###		模板定义的替代品
+* 内联模板
+	* 当inline-template这个特殊的特性出现在一个子组件上时，这个组件将会使用其里面的内容作为模板，而不是将其作为被分发的内容。这使得模板的撰写工作更加灵活。
+		* `<my-component inline-template>
+			  <div>
+			    <p>These are compiled as the component's own template.</p>
+			    <p>Not parent's transclusion content.</p>
+			  </div>
+			</my-component>`
+	* 内联模板需要定义在Vue所属的DOM元素内。
+		* 不过，inline-template会让模板的作用域变得更加难以理解。所以作为最佳实践，请在组件内优先选择template选项或 .vue 文件里的一个 <template> 元素来定义模板。
+* [X-Template](https://cn.vuejs.org/v2/guide/components-edge-cases.html#X-Template)
+
+###		控制更新
+* 通过 v-once 创建低开销的静态组件
+	* 渲染普通的 HTML 元素在 Vue 中是非常快速的，但有的时候你可能有一个组件，这个组件包含了大量静态内容。在这种情况下，你可以在根元素上添加 v-once 特性以确保这些内容只计算一次然后缓存起来，就像这样：
+		* ``
+
+
+#	过渡&动画
+##	进入/离开&列表过渡
+###		概述
+* Vue在插入、跟新或者移除DOM时，提供多种不同方式的应用过渡效果。
+* 包括以下工具：
+	* 在CSS过渡和动画中自动应用class
+	* 可以配合使用第三方CSS动画库，如果Animate.css
+	* 在过渡钩子函数中使用JavaScript直接操作DOM
+	* 可以配合使用第三方JavaScript动画库，如Velocity.js
+* 在这里，只能江到进入、离开和列表的过渡。
+
+###		单元素/组件的过渡
+* Vue提供了 transition 的封装组件，在下列情形中，可以给任何元素和组件添加进入/离开过渡
+	* 条件渲染（使用 v-if ）
+	* 条件展示（使用 v-show）
+	* 动态组件
+	* 组件根节点
+
+* 当插入或删除包含在 transition 组件中的元素时，Vue将会做以下处理：
+	* 自动嗅探目标元素是否应用了CSS过渡或动画，如果是，在恰当的时机添加/删除CSS类名。
+	* 如果过渡组件提供了JavaScript钩子函数，这些钩子函数将在恰当的时机被调用。
+	* 如果没有找到JavaScript钩子并且也没有检测到CSS过渡/动画，DOM操作（插入/删除）在下一帧中立即执行。（注意：此指浏览器逐帧动画机制，和Vue的nextTick 概率不同）
+
+###		过渡的类名
+* 在进入/离开的过渡中，会有6个class切换。
+	* v-enter：定义进入过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。
+	* v-enter-active：定义进入过渡生效
+
