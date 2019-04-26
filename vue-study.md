@@ -196,7 +196,7 @@
 	* 如果过渡组件提供了JavaScript钩子函数，这些钩子函数将在恰当的时机被调用。
 	* 如果没有找到JavaScript钩子并且也没有检测到CSS过渡/动画，DOM操作（插入/删除）在下一帧中立即执行。（注意：此指浏览器逐帧动画机制，和Vue的nextTick 概率不同）
 
-###		过渡的类名
+####		过渡的类名
 * 在进入/离开的过渡中，会有6个class切换。
 	* 1.v-enter：定义进入过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。
 	* 2.v-enter-active：定义进入过渡生效时的状态。在整个进入过渡的阶段中应用，在元素被插入之前生效，在过渡/动画完成之后移除。这个类可以被用来定义进入过渡的过程时间，延迟和曲线函数。
@@ -207,10 +207,52 @@
 * 对于这些在过渡中切换的类名来说，如果你使用一个没有名字的<transition>,则 v- 是这些类名的默认前缀。如果使用了<transition name="my-transition">，那么 v-enter 会替换为 my-transition-enter。
 * v-enter-active 和 v-leave-active 可以控制进入/离开过渡的不同的缓和曲线。
 
-###		CSS过渡
+####		CSS过渡
 * 常用的 过渡都是使用CSS过渡。
-###		CSS动画
+####		CSS动画
 * CSS动画用法同CSS过渡，区别是在动画中 v-enter 类名在节点插入DOM后不会立即删除，而是在 animationend 时间触发时删除。
-###		自定义过渡的类名
-* 
+####		自定义过渡的类名
+* 我们可以通过以下特性来自定义过渡类名：
+	* enter-class
+	* enter-active-class
+	* enter-to-class
+	* leave-class
+	* leave-active-class
+	* leave-to-class
+* 他们的优先级高于普通的类名，这对于Vue的过渡系统和其他第三方CSS动画库，如 [Animate.css](https://daneden.github.io/animate.css/) 结合使用十分有用。
 
+####		同时使用过渡和动画
+* Vue为了知道过渡的完成，必须设置相应的事件监听器。它可以是 transitionend 或 animationend ，这取决于给元素应用的CSS规则。如果你使用其中任何一种，Vue能自动识别类型并设置监听。
+* 但是，在一些场景中，你需要给同一个元素设置两种过渡效果，比如 animation 很快的被触发并完成了，而 transition 效果还没结束。在这种情况中，你就需要使用 type 特性并设置 animation 或 transition 来明确声明你需要 Vue 监听的类型。
+
+####		显性的过渡持续事件
+* 在很多情况下，Vue 可以自动得出过渡效果的完成时机。默认情况下，Vue 会等待其在过渡效果的根元素的第一个 transitionend 或 animationend 事件。然而也可以不这样设定——比如，我们可以拥有一个精心编排的一系列过渡效果，其中一些嵌套的内部元素相比于过渡效果的根元素有延迟的或更长的过渡效果。
+* 在这种情况下你可以用 <transition> 组件上的 duration 属性定制一个显性的过渡持续时间 (以毫秒计)：
+	* `<transition :duration="1000">...</transition>`
+* 你也可以定制进入和移除的持续事件：
+	* `<transition :duration="{ enter: 500, leave: 800 }">...</transition>`
+
+####		[JavaScript钩子](https://cn.vuejs.org/v2/guide/transitions.html#JavaScript-%E9%92%A9%E5%AD%90)
+* 可以在属性中声明JavaScript钩子
+	
+###		初始渲染的过渡
+* 可以通过appear特性设置节点在初始渲染的过渡
+	* `<transition appear>......</transition>`
+* 这里默认和进入/离开过渡一样，同样也可以自定义CSS类名。
+	* ``
+
+###		多个元素的过渡
+* 当有相同标签名的元素切换时，需要通过 **key** 特性设置唯一的值来标记以让 Vue 区分它们，否则 Vue 为了效率只会替换相同标签内部的内容。即使在技术上没有必要，给在 **<transition>** 组件中的多个元素设置 key 是一个更好的实践。
+
+####	过渡模式
+* 同时生效的进入和离开的过渡不能满足所有要求，所以 Vue 提供了 过渡模式。
+	* in-out：新元素先进行过渡，完成之后当前元素过渡离开。
+	* out-in：当前元素先进行过渡，完成之后新元素过渡离开。
+
+###		多个组件的过渡
+* 多个组件的过渡简单很多-我们不需要使用 key 特性。相反，我们只需要使用动态组件
+###		列表过渡
+####	列表的进入/离开过渡
+####	列表的排序过渡
+* <transition-group> 组件还有一个特殊之处。不仅可以进入和离开动画，还可以改变定位。要使用这个新功能只需了解新增的 v-move 特性，它会在元素的改变定位的过程中应用。像之前的类名一样，可以通过 name 属性来自定义前缀，也可以通过 move-class 属性手动设置。
+* v-move对于设置过渡的接环时间和过渡曲线非常有用。
