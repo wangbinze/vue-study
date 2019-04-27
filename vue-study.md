@@ -283,3 +283,16 @@
 ###	选项合并
 * 当组件和混入对象含有同名选项时，这些选项将以恰当的方式进行“合并”。
 * 比如，数据对象在内部会进行递归合并，并在发生冲突时以组件数据优先。
+* 值为对象的选项，例如 methods、components 和 directives，将被合并为同一个对象。两个对象键名冲突时，取组件对象的键值对。
+
+###	全局混入
+* 混入也可以进行全局注册。使用时格外小心！一旦使用全局混入，它将影响每一个之后创建的Vue实例。使用恰当是，这可以用来为自定义选项注入处理逻辑。
+* 请谨慎使用全局混入，因为它会影响每个单独创建的Vue实例（包括第三方组件）。大多数情况下，只应当应用于自定义选项，就像上面示例一样。推荐将其作为插件发布，以避免重复应用混入。
+
+###	自定义选项合并策略
+* 自定义选项将使用默认策略，即简单地覆盖已有值。如果想让自定义选项以自定义逻辑合并，可以向 Vue.config.optionMergeStrategies 添加一个函数：
+	* 
+	`Vue.config.optionMergeStrategies.myOption = function (toVal, fromVal) { //返回合并后的值}`
+* 对于多数值为对象的选项，可以使用与 methods 相同的合并策略：
+	* `var strategies = Vue.config.optionMergeStrategies`
+	* `strategies.myOption = strategies.methods`
