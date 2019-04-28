@@ -342,4 +342,17 @@
 * Vue通过建立一个虚拟DOM来追踪自己要如何改变真实DOM。
 * “虚拟 DOM”是我们对由 Vue 组件树建立起来的整个 VNode 树的称呼。
 
-###	createElement参数
+###	[createElement参数](https://cn.vuejs.org/v2/guide/render-function.html#createElement-%E5%8F%82%E6%95%B0)
+
+####	[深入数据对象](https://cn.vuejs.org/v2/guide/render-function.html#%E6%B7%B1%E5%85%A5%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1)
+* 有一点要注意：正如 v-bind:class 和 v-bind:style 在模板语法中会被特别对待一样，它们在 VNode 数据对象中也有对应的顶层字段。该对象也允许你绑定普通的 HTML 特性，也允许绑定如 innerHTML 这样的 DOM 属性 (这会覆盖 v-html 指令)。
+
+####	约束
+* VNode必须唯一
+	* 组件树中的所有 VNode 必须是唯一的。
+	* 如果你真的需要重复很多次的元素/组件，你可以使用工厂函数来实现。
+
+###	使用JavaScript代替模板功能
+####	v0-if 和 v-for
+* 只要在原生的JavaScript中可以轻松完成的操作，Vue的渲染函数就不回提供专有的替代方法。
+
