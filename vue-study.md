@@ -204,6 +204,7 @@
 	* 4.v-leave： 定义离开过渡的开始状态。在离开过渡被触发时立刻生效，下一帧被移除。
 	* 5.v-leave-active：定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。
 	* 6.v-leave-to：**2.1.8版及以上** 定义离开过渡的结束状态。在离开过渡被触发之后下一帧生效（于此同时 v-leave 被删除），在过渡/动画完成之后移出。
+	* ![](https://i.imgur.com/0cqRgVm.png)
 * 对于这些在过渡中切换的类名来说，如果你使用一个没有名字的<transition>,则 v- 是这些类名的默认前缀。如果使用了<transition name="my-transition">，那么 v-enter 会替换为 my-transition-enter。
 * v-enter-active 和 v-leave-active 可以控制进入/离开过渡的不同的缓和曲线。
 
@@ -353,6 +354,30 @@
 	* 如果你真的需要重复很多次的元素/组件，你可以使用工厂函数来实现。
 
 ###	使用JavaScript代替模板功能
-####	v0-if 和 v-for
+####	v-if 和 v-for
 * 只要在原生的JavaScript中可以轻松完成的操作，Vue的渲染函数就不回提供专有的替代方法。
 
+####	v-model
+* 渲染函数中没有与 v-model 的直接对应--必须自己实现相应的逻辑：
+
+####	事件&按键修饰符
+* 对于 .passive 、.capture 和 .once 这些事件修饰符，Vue提供了相应的前缀可以用于 on：
+	* **修饰符**-----**前缀**
+	* .passive ----- &
+	* .capture ----- !
+	* .once -------- ~
+	* .capture.once或者.once.capture ---- ~!
+* 对于所有其它的修饰符，私有前缀都不是必须的，因为你可以在事件处理函数中使用事件方法：
+	* **修饰符**----**处理函数中的等价操作**
+	* .stop	----------	event.stopPropagation()
+	* .prevent	------	event.preventDefault()
+	* .self	----------	if(event.target !== event.currentTarget)return
+	* 按键： .enter, .13	--	if (event.keyCode !== 13) return (对于别的按键修饰符来说，可将 13 改为另一个按键码)
+	* 修饰键：.ctrl,.alt,.shift,.meta	---	if (!event.ctrlKey) return (将 ctrlKey 分别修改为 altKey、shiftKey 或者 metaKey)
+
+####	插槽
+* 可以通过 this.$slots 访问静态插槽的内容，每个插槽都是一个VNode数组
+* 也可以通过 this.$scopedSlots 访问作用域插槽，每个作用域插槽都是一个返回若干VNode的函数
+* 如果要用渲染函数向子组件中传递作用域插槽，可以利用 VNode 数据对象中的 scopedSlots 字段
+
+###	JSX
