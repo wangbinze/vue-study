@@ -384,4 +384,50 @@
 * 将 h 作为 createElement 的别名是 Vue 生态系统中的一个通用惯例，实际上也是 JSX 所要求的。从 Vue 的 Babel 插件的 3.4.0 版本开始，我们会在以 ES2015 语法声明的含有 JSX 的任何方法和 getter 中 (不是函数或箭头函数中) 自动注入 **const h = this.$createElement**，这样你就可以去掉 (h) 参数了。对于更早版本的插件，如果 h 在当前作用域中不可用，应用会抛错。
 
 ###	函数式组件
-* 
+* 我们可以将组件标记为 functional ，这意味它无状态（没有响应式数据），也没有实例（没有this上下文）。
+	* 
+	`Vue.component('my-component', {
+		functional: true,
+		//props是可选的
+		props: {
+			//......
+		},
+		//为了弥补缺少的实例
+		//提供第二个参数作为上下文
+		render: function (createElement, context) {
+			//......
+		}
+	})`
+* 注意：在2.3.0之前的版本中，如果一个函数式组件想要接受prop，则props选项是必须的。在2.3.0或以上的版本中，可以省略props选项，所有组件上的特性都回被自动隐式解析为porp。
+* 在2.5.0及以上版本中，如果使用单文件组件，那么基于模板的函数式组件可以这样声明：
+	* `<template functional></template>`
+* 组件需要的一切都是通过 context 参数传递，它是一个包括如下字段的对象：
+	* props：提供所有 prop 的对象
+	* children: VNode 子节点的数组
+	* slots: 一个函数，返回了包含所有插槽的对象
+	* scopedSlots: (2.6.0+) 一个暴露传入的作用域插槽的对象。也以函数形式暴露普通插槽。
+	* data：传递给组件的整个数据对象，作为 createElement 的第二个参数传入组件
+	* parent：对父组件的引用
+	* listeners: (2.3.0+) 一个包含了所有父组件为当前组件注册的事件监听器的对象。这是 data.on 的一个别名。
+	* injections: (2.3.0+) 如果使用了 inject 选项，则该对象包含了应当被注入的属性。
+* 在添加 functional: true 之后，需要更新我们的锚点标题组件的渲染函数，为其增加 context 参数，并将 this.$slots.default 更新为 context.children，然后将 this.level 更新为 context.props.level。
+
+###模板编译
+
+##	插件
+插件通常用来为 Vue 添加全局功能。插件的功能范围没有严格的限制——一般有下面几种：
+
+1. 添加全局方法或者属性。如：[vue-custom-element](https://github.com/karol-f/vue-custom-element)
+2. 添加全局资源：指令/过滤器/过渡等。如：[vue-touch](https://github.com/vuejs/vue-touch)
+3. 通过全局混入来添加一些组件选项。如：[vue-router](https://github.com/vuejs/vue-router)
+4. 添加Vue实例方法，通过把它们添加到Vue.prototype上实现。
+5. 一个库，提供自己的API，同时提供上面提法哦的一个或多个功能。如：vue-router
+###	使用插件
+* 通过全局方法 Vue.use() 使用插件。
+* Vue.use 会自动阻止多次注册相同插件，届时即使多次调用也只会注册一次该插件。
+* [awesome-vue](https://github.com/vuejs/awesome-vue#components--libraries) 集合了大量由社区贡献的插件和库。
+###	开发插件
+
+
+##	过滤器
+Vue.js允许自定义过滤器，可被用于一些常见的文本格式化。过滤器可以用在两个地方：**双花括号插值和 v-bind 表达式**（后者从2.1.0+开始支持）。过滤器应该被添加在JavaScript表达式的尾部，由“管道”符号指示。
