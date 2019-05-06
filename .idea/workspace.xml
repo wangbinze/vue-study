@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb6fa6b8-0e7c-4b1f-9616-c38e491e6dd1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/example/GitHub提交Example/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/网格组件Example/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -17,10 +17,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/example/GitHub提交Example/index.html">
+        <entry file="file://$PROJECT_DIR$/example/网格组件Example/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="938">
-              <caret line="92" column="3" selection-start-line="92" selection-start-column="3" selection-end-line="92" selection-end-column="3" />
+            <state relative-caret-position="171">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -47,6 +47,7 @@
       <list>
         <option value="$PROJECT_DIR$/example/Markdown编辑器/index.html" />
         <option value="$PROJECT_DIR$/example/GitHub提交Example/index.html" />
+        <option value="$PROJECT_DIR$/example/网格组件Example/index.html" />
       </list>
     </option>
   </component>
@@ -110,7 +111,7 @@
       <option name="presentableId" value="Default" />
       <updated>1557136283967</updated>
       <workItem from="1557136285419" duration="1164000" />
-      <workItem from="1557148502613" duration="3249000" />
+      <workItem from="1557148502613" duration="4372000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1557136336479</created>
@@ -126,11 +127,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557137267703</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="1">
+      <created>1557156647071</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1557156647072</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4413000" />
+    <option name="totallyTimeSpent" value="5536000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="986" y="0" width="1006" height="1158" extended-state="0" />
@@ -179,8 +187,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/example/GitHub提交Example/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="938">
+        <state relative-caret-position="791">
           <caret line="92" column="3" selection-start-line="92" selection-start-column="3" selection-end-line="92" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/网格组件Example/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
