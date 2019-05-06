@@ -28,7 +28,7 @@
 		* 使用PascalCase（驼峰命名法）
 			* `Vue.component('MyComponentName', { /* ... */ })`
 			* 当使用 PascalCase (首字母大写命名) 定义一个组件时，你在引用这个自定义元素时两种命名法都可以使用。也就是说 <my-component-name> 和 <MyComponentName> 都是可接受的。
-	* 注意，尽管如此，直接在 DOM (即非字符串的模板) 中使用时只有 kebab-case 是有效的。
+	* 注意，尽管如此，由于 HTML 是大小写不敏感的，直接在 DOM (即非字符串的模板) 中使用时只有 kebab-case 是有效的。
 
 * 全局注册
 
