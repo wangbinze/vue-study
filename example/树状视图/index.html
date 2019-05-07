@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script type="text/javascript" src="../vue.js"></script>
+</head>
+<body>
+
+
+
+
+
+<!-- the demo root element -->
+<ul id="demo">
+	<tree-item
+		class="item"
+		v-bind:item="treeData"
+	  v-on:make-folder="makeFolder"
+		v-on:add-item="addItem"
+	>
+	</tree-item>
+</ul>
+</body>
+</html>
