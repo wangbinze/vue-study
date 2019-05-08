@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb6fa6b8-0e7c-4b1f-9616-c38e491e6dd1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/example/具有伸缩性的Header Example/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/TodoMVC Example/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/TodoMVC Example/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/内嵌组件Example/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/实时 deepstreamHub Example/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -17,12 +20,17 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/example/具有伸缩性的Header Example/index.html">
+        <entry file="file://$PROJECT_DIR$/example/TodoMVC Example/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="33" column="17" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+            <state relative-caret-position="640">
+              <caret line="62" column="9" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/TodoMVC Example/index.css">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -43,6 +51,7 @@
       <find>10</find>
       <find>onDrag</find>
       <find>DraggableHeaderView</find>
+      <find>dynamics</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -60,6 +69,9 @@
         <option value="$PROJECT_DIR$/example/SVG图标Example/index.html" />
         <option value="$PROJECT_DIR$/example/模式组件Example/index.html" />
         <option value="$PROJECT_DIR$/example/具有伸缩性的Header Example/index.html" />
+        <option value="$PROJECT_DIR$/example/内嵌组件Example/index.html" />
+        <option value="$PROJECT_DIR$/example/实时 deepstreamHub Example/index.html" />
+        <option value="$PROJECT_DIR$/example/TodoMVC Example/index.html" />
       </list>
     </option>
   </component>
@@ -85,6 +97,12 @@
               <item name="vue-study" type="462c0819:PsiDirectoryNode" />
               <item name="example" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="vue-study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-study" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
+              <item name="TodoMVC Example" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -99,6 +117,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Paramland_05\Desktop\vue-study\example\TodoMVC Example" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -126,7 +149,7 @@
       <workItem from="1557148502613" duration="4372000" />
       <workItem from="1557195261992" duration="7368000" />
       <workItem from="1557239526717" duration="4064000" />
-      <workItem from="1557281726814" duration="13473000" />
+      <workItem from="1557281726814" duration="18947000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1557136336479</created>
@@ -191,17 +214,24 @@
       <option name="project" value="LOCAL" />
       <updated>1557298299533</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="1">
+      <created>1557304091691</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1557304091691</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30441000" />
+    <option name="totallyTimeSpent" value="35915000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1057" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19871795" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20940171" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Messages" weight="0.32936078" />
@@ -312,6 +342,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
           <caret line="33" column="17" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/内嵌组件Example/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/实时 deepstreamHub Example/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="165" column="4" selection-start-line="165" selection-start-column="4" selection-end-line="165" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/TodoMVC Example/index.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/TodoMVC Example/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="62" column="9" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
         </state>
       </provider>
     </entry>
