@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb6fa6b8-0e7c-4b1f-9616-c38e491e6dd1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/example/具有伸缩性的Header Example/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/模式组件Example/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/example/模式组件Example/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,10 +17,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/example/模式组件Example/index.html">
+        <entry file="file://$PROJECT_DIR$/example/具有伸缩性的Header Example/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="760">
-              <caret line="52" column="6" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="6" />
+            <state relative-caret-position="660">
+              <caret line="33" column="17" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -41,6 +41,8 @@
       <find>demo-grid</find>
       <find>in</find>
       <find>10</find>
+      <find>onDrag</find>
+      <find>DraggableHeaderView</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -57,6 +59,7 @@
         <option value="$PROJECT_DIR$/example/SVG多边形.html" />
         <option value="$PROJECT_DIR$/example/SVG图标Example/index.html" />
         <option value="$PROJECT_DIR$/example/模式组件Example/index.html" />
+        <option value="$PROJECT_DIR$/example/具有伸缩性的Header Example/index.html" />
       </list>
     </option>
   </component>
@@ -123,7 +126,7 @@
       <workItem from="1557148502613" duration="4372000" />
       <workItem from="1557195261992" duration="7368000" />
       <workItem from="1557239526717" duration="4064000" />
-      <workItem from="1557281726814" duration="8222000" />
+      <workItem from="1557281726814" duration="13473000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1557136336479</created>
@@ -181,19 +184,27 @@
       <option name="project" value="LOCAL" />
       <updated>1557288269637</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="1">
+      <created>1557298299533</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1557298299533</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25190000" />
+    <option name="totallyTimeSpent" value="30441000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1057" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19123931" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19871795" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" weight="0.32936078" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -216,6 +227,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />
     <option name="LAST_COMMIT_MESSAGE" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/example/具有伸缩性的Header Example/index.html</url>
+          <line>86</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/example/vue.js">
@@ -280,8 +303,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/example/模式组件Example/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="52" column="6" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="6" />
+        <state relative-caret-position="380">
+          <caret line="33" column="19" lean-forward="true" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/具有伸缩性的Header Example/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="33" column="17" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
         </state>
       </provider>
     </entry>
