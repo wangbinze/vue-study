@@ -11,10 +11,11 @@
 
 <body>
     <div id="app">
-
+        <li v-for="(item,index) in items">{{ item }},{{ index }}</li>
     </div>
     <script>
         var vm = new Vue({
+            el: "#app",
             data: {
                 items: ['a', 'b', 'c']
             }
