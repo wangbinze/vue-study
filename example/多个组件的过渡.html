@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <style>
+        .component-fade-enter-active,
+        .component-fade-leave-active {
+            transition: opacity .3s ease;
+        }
+        
+        .component-fade-enter,
+        .component-fade-leave-to
+        /* .component-fade-leave-active for below version 2.1.8 */
+        
+        {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="transition-components-demo">
+        <input type="radio" value="v-a" id="a" name="view">
+        <input type="radio" value="v-a" id="b" name="view">
+        <transition name="component-fade" model="out-in">
+            <component :is="view"></component>
+        </transition>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#transition-components-demo",
+            data: {
+                view: 'v-a'
+            },
+            components: {
+                'v-a': {
+                    template: '<div>Component A</div>'
+                },
+                'v-b': {
+                    template: '<div>Component B</div>'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
