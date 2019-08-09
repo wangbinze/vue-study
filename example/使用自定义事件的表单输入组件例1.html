@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <custom-input v-model="something"></custom-input>
+        <br> {{something}}
+    </div>
+</body>
+<script>
+    Vue.component('custom-input', {
+        props: ['something'],
+        template: '<input type="text" v-bind:value="something" v-on:input="updateValue($event.target.value)"/>',
+        methods: {
+            updateValue: function(value) {
+                this.$emit('input', value)
+            }
+        },
+    })
+
+    new Vue({
+        el: "#app",
+        data: {
+            something: ''
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <my-checkbox v-model="foo" value="some value"></my-checkbox>
+        {{foo}}
+    </div>
+</body>
+<script>
+    Vue.component("my-checkbox", {
+        model: {
+            prop: 'checked',
+            event: 'change'
+        },
+        props: {
+            checked: Boolean,
+            //这样就允许拿'value'这个prop做其他事了
+            value: String
+        },
+        template: '<input type="checkbox" @change="changefun(ischecked)"/>',
+        data: function() {
+            return {
+                ischecked: this.checked
+            }
+        },
+        methods: {
+            changefun(state) {
+                this.ischecked = !state;
+                this.$emit('change', this.ischecked)
+            }
+        },
+    })
+
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            foo: false
+        }
+    })
+</script>
+
+</html>
