@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <anchored-heading :level="1">Hello world!</anchored-heading>
+</body>
+<script>
+    Vue.component('anchored-heading', {
+        render: function(createElement) {
+            return createElement(
+                'h' + this.level, // 标签名称
+                this.$slots.default // 子节点数组
+            )
+        },
+        props: {
+            level: {
+                type: Number,
+                required: true
+            }
+        }
+    })
+</script>
+
+</html>

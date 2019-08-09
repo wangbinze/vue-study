@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <script>
+        //定义一个混入对象
+        var myMixin = {
+            created: function() {
+                this.hello()
+            },
+            methods: {
+                hello: function() {
+                    console.log('hello from mixin!')
+                }
+            }
+        }
+
+        //定义一个使用混入对象的组件
+        var Component = Vue.extend({
+            mixins: [myMixin]
+        })
+
+        var component = new Component()
+
+
+
+        var mixin = {
+            data: function() {
+                return {
+                    message: 'hello',
+                    foo: 'abc'
+                }
+            }
+        }
+
+        new Vue({
+            mixins: [mixin],
+            data: function() {
+                return {
+                    message: 'goodbye',
+                    bar: 'def'
+                }
+            },
+            created: function() {
+                console.log(this.$data)
+            }
+        })
+
+
+
+
+        var mixin1 = {
+            created: function() {
+                console.log('混入对象的钩子被调用')
+            }
+        }
+
+        new Vue({
+            created: function() {
+                console.log('组件对象的钩子被调用')
+            },
+            mixins: [mixin1],
+
+        })
+    </script>
+</body>
+
+</html>
