@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <link rel="stylesheet" href="./index2.css">
+</head>
+
+<body>
+    <div id="app">
+        <h1>图书管理系统</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>书名</th>
+                    <th>作者</th>
+                    <th>价格</th>
+                    <th>出版社</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(book,index) in books">
+                    <td>{{book.id}}</td>
+                    <td>{{book.name}}</td>
+                    <td>{{book.author}}</td>
+                    <td>{{book.price}}</td>
+                    <td>{{book.press}}</td>
+                    <td><button v-on:click="delBook(index)">删除</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div id="add">
+            <h2>添加书籍</h2>
+            <div class="form-group">
+                <p>书名：<input type="text" v-model="newBook.name"></p>
+                <p>作者<input type="text" v-model="newBook.author"></p>
+                <p>价格：<input type="text" v-model="newBook.price"></p>
+                <p>标签：<input type="text" v-model="newBook.press"></p>
+                <p><button v-on:click="addBook">添加</button></p>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            books: [
+                { id: 1, name: '《你不知道的JavaScript》', author: 'Nicholas C.Zakas', price: '99.00', press: '人民邮电出版社' },
+                { id: 2, name: '《锋利的jquery》', author: '单东林', price: '49', press: '人民邮电出版社' },
+                { id: 3, name: '《JavaScript函数式编程》', author: '路易斯·阿泰西奥', price: '59', press: '人民邮电出版社' },
+                { id: 4, name: '《WebGL编程指南》', author: 'Rodger Lea', price: '98', press: '电子工业出版社' },
+                { id: 5, name: '《深入浅出Vue.js》', author: '刘博文', price: '79', press: '人民邮电出版社' }
+            ],
+            newBook: {
+                id: 0,
+                name: '',
+                author: '',
+                price: '',
+                press: ''
+            }
+        },
+        methods: {
+            // 添加书籍
+            addBook: function () {
+                var maxId = 0;
+                for (var i = 0; i < this.length; i++) {
+                    if (maxId < this.books[i].id) {
+                        maxId = this.books[i].id;
+                    }
+                }
+                this.newBook.id = maxId + 1;
+                this.books.push(this.newBook);
+                this.newBook = {};
+            },
+
+            // 删除书籍
+            delBook: function (index) {
+                this.books.splice(index, 1);
+            }
+        }
+    })
+</script>
+
+</html>

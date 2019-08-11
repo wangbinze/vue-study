@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>vue网页练习一</title>
     <script src="../vue.js"></script>
+    <link rel="stylesheet" href="./index.css">
 </head>
+
 <body>
-    <div id="app"></div>
+    <div id="app">
+        <ul id="nav">
+            <li v-for="item  in items">
+                <a href="">{{ item.message }}</a>
+            </li>
+        </ul>
+    </div>
 </body>
-    <script>
-        
+<script>
 
-        var vm = new Vue({
 
-        });
-    </script>
+
+    var app = new Vue({
+        el: "#app",
+        data:{
+            items:[
+                {message :"首页"},
+                {message :"个人介绍"},
+                {message :"联系我"},
+                {message :"照片"}
+            ]
+        }
+    });
+</script>
+
 </html>

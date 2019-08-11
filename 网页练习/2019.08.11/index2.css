@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+li {
+    list-style: none;
+}
+
+table{
+    text-align: center;
+    margin: 20px auto;
+}
