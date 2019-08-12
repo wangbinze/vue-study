@@ -12,16 +12,26 @@
 <body>
     <div id="my-app">
         <h1>我的个人经历</h1>
-        <h3>教育经历</h3>
-        <my-education />
+        <div id="app1">
+            <h3>教育经历</h3>
+            <my-education />
+        </div>
 
-        <!-- <h3>工作经历</h3>
-        <my-work/> -->
+        <div id="app2">
+            <h3>工作经历</h3>
+            <my-education />
+            <my-work/>
+        </div>
     </div>
 
+    <div id="example">
+        <h2>来自example</h2>
+        <my-education />
+        <my-work />
+    </div>
+
+
     <script>
-
-
         //创建全局组件
         Vue.component('my-education', {
             template: `\
@@ -29,50 +39,57 @@
             <li v-for="item in items">{{item.mySchool}}</li>\
             </ul>\
             `,
-            data: function () {
+            data: function() {
                 return {
-                    items: [
-                        { mySchool: '垫江县高安小学-小学' },
-                        { mySchool: '重庆市垫江第三中学-初中' },
-                        { mySchool: '重庆市梁平中学-高中' },
-                        { mySchool: '南昌工程学院-大学' }
-                    ]
+                    items: [{
+                        mySchool: '垫江县高安小学-小学'
+                    }, {
+                        mySchool: '重庆市垫江第三中学-初中'
+                    }, {
+                        mySchool: '重庆市梁平中学-高中'
+                    }, {
+                        mySchool: '南昌工程学院-大学'
+                    }]
                 }
             }
         })
 
         // 创建局部组件
-        // let workExperience = Vue.extend({
-        //     template:`\
-        //     <ul>\
-        //     <li v-for="item in items">{{item.myWork}}--{{item.time}}--{{item.address}}</li>\
-        //     </ul>\
-        //     `,
-        //     data:function(){
-        //         return{
-        //             items:[
-        //                 {
-        //                     myWork:'湖南水利水电监理承包总公司',
-        //                     time:'2016.07-2018.01',
-        //                     address:'四川巴塘水电站'
-        //                 },
-        //                 {
-        //                     myWork:'重庆数地景观设计有限公司',
-        //                     time:'2019.01-至今',
-        //                     address:'重庆渝北区'
-        //                 }
-        //             ]
-        //         }
-        //     }
-        // })
+        let workExperience = Vue.extend({
+            template: `\
+            <ul>\
+            <li v-for="item in items">{{item.myWork}}--{{item.time}}--{{item.address}}</li>\
+            </ul>\
+            `,
+            data: function() {
+                return {
+                    items: [{
+                        myWork: '湖南水利水电监理承包总公司',
+                        time: '2016.07-2018.01',
+                        address: '四川巴塘水电站'
+                    }, {
+                        myWork: '重庆数地景观设计有限公司',
+                        time: '2019.01-至今',
+                        address: '重庆渝北区'
+                    }]
+                }
+            }
+        })
 
-        
+
 
         var vm = new Vue({
             el: "#my-app",
-            // components:{
-            //     'my-work':workExperience
-            // }
+            components: {
+                'my-work': workExperience
+            }
+        })
+
+        new Vue({
+            el: "#example",
+            components: {
+                'my-work': workExperience //未生效？？？？？？留存疑问
+            }
         })
     </script>
 </body>

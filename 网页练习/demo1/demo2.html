@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <my-study></my-study>
+        <p>我的工作</p>
+        <my-work></my-work>
+    </div>
+</body>
+
+<script>
+    Vue.component('my-study', {
+        template: `<ul><li v-for="item in items">{{item.school}}</li></ul>`,
+        data() {
+            return {
+                items: [{
+                    school: '重庆市垫江第三中学'
+                }, {
+                    school: '重庆市梁平中学'
+                }]
+            }
+        },
+    })
+
+    Vue.component('my-work', {
+        template: `\
+            <ul>\
+            <li v-for="item in items">{{item.myWork}}--{{item.time}}--{{item.address}}</li>\
+            </ul>\
+            `,
+        data() {
+            return {
+                items: [{
+                    myWork: '湖南水利水电监理承包总公司',
+                    time: '2016.07-2018.01',
+                    address: '四川巴塘水电站'
+                }, {
+                    myWork: '重庆数地景观设计有限公司',
+                    time: '2019.01-至今',
+                    address: '重庆渝北区'
+                }]
+            }
+        },
+    })
+
+    new Vue({
+        el: "#app"
+    })
+</script>
+
+</html>
