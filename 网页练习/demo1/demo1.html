@@ -27,17 +27,20 @@
     <div id="example">
         <h2>来自example</h2>
         <my-education />
+        <my-education />
+
         <my-work />
+
     </div>
 
 
     <script>
         //创建全局组件
         Vue.component('my-education', {
-            template: `\
+            template: `<div>\
             <ul>\
             <li v-for="item in items">{{item.mySchool}}</li>\
-            </ul>\
+            </ul>\</div>
             `,
             data: function() {
                 return {
@@ -54,12 +57,14 @@
             }
         })
 
+
+
         // 创建局部组件
-        let workExperience = Vue.extend({
-            template: `\
+        let workExperience = {
+            template: `<div>\
             <ul>\
             <li v-for="item in items">{{item.myWork}}--{{item.time}}--{{item.address}}</li>\
-            </ul>\
+            </ul>\</div>
             `,
             data: function() {
                 return {
@@ -74,7 +79,7 @@
                     }]
                 }
             }
-        })
+        }
 
 
 
@@ -87,9 +92,9 @@
 
         new Vue({
             el: "#example",
-            components: {
-                'my-work': workExperience //未生效？？？？？？留存疑问
-            }
+            // components: {
+            //     'my-work': workExperience //未生效？？？？？？留存疑问
+            // }
         })
     </script>
 </body>
