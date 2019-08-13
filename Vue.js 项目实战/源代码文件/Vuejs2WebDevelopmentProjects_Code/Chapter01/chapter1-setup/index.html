@@ -1,33 +1,46 @@
 <html>
+
 <head>
-  <title>VueJS</title>
+    <title>VueJS</title>
 </head>
+
 <body>
-  <!-- Include the library in the page -->
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- Include the library in the page -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
 
-  <!-- Some HTML -->
-  <div id="root">
-    <p>{{ message }}</p>
-    <input v-model="message" />
-  </div>
+    <!-- Some HTML -->
+    <div id="root">
+        <p>{{ message }}</p>
+        <input v-model="message" />
+    </div>
 
-  <!-- Some JavaScript -->
-  <script>
-  console.log('Yes! We are using Vue version', Vue.version)
+    <!-- Some JavaScript -->
+    <script>
+        console.log('Yes! We are using Vue version', Vue.version)
 
-  // New VueJS instance
-  var app = new Vue({
-    name: 'my-app',
-    // CSS selector of the root DOM element
-    el: '#root',
-    // Some data
-    data () {
-      return {
-        message: 'Hello Vue.js!',
-      }
-    },
-  })
-  </script>
+        // New VueJS instance
+        // var app = new Vue({
+        //   name: 'my-app',
+        //   // CSS selector of the root DOM element
+        //   el: '#root',
+        //   // Some data
+        //   data () {
+        //     return {
+        //       message: 'Hello Vue.js!',
+        //     }
+        //   },
+        // })
+        var app = new Vue({
+            name: 'myApp',
+            data() {
+                return {
+                    message: 'wangbinze'
+                }
+            },
+        })
+
+        app.$mount('#root')
+    </script>
 </body>
+
 </html>
