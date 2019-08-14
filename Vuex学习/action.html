@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mutation</title>
+    <script src="../example/vue.js"></script>
+    <script src="./vuex.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+</body>
+
+<script>
+    const store = new Vuex.Store({
+        state: {
+            count: 0
+        },
+        mutations: {
+            increment(state) {
+                state.count++
+            }
+        },
+        actions: {
+            increment(context) {
+                context.commit('increment')
+            },
+            incrementAsync({
+                commit
+            }) {
+                setTimeout(() => {
+                    commit('increment')
+                }, 1000)
+            }
+        }
+    })
+
+    new Vue({
+        el: "#app",
+        store,
+        computed: Vuex.mapState(['count']),
+        template: `
+        <p>{{count}}</p>
+        `
+    })
+</script>
+
+</html>

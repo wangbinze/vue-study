@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../example/vue.js"></script>
+    <script src="./vuex.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+
+<script>
+    const store = new Vuex.Store({
+        state: {
+            todos: [{
+                name: "读书1小时",
+                done: false
+            }, {
+                name: "B站看视频",
+                done: true
+            }, {
+                name: "反馈",
+                done: true
+            }, ]
+        },
+        getters: {
+            doneTodos(state) {
+                return state.todos.filter(todo => todo.done)
+            },
+            doneTodosCount(state) {
+                return state.todos.filter(todo => todo.done).length
+            }
+        },
+        mutations: {
+            increment(state) {
+                state.count++
+            }
+        }
+    })
+
+    const Counter = {
+        template: `<div>
+            <p>
+                今日已经完成{{doneTodosCount}}件事
+            </p>
+            <ul>
+                <li v-for="todo in doneTodos" :key="todo.id">{{todo.name}}</li>
+            </ul>
+        </div>`,
+        data() {
+            return {
+                start: 5
+            }
+        },
+        computed: {
+            doneTodos() {
+                return store.getters.doneTodos
+            },
+            doneTodosCount() {
+                return store.getters.doneTodosCount
+            }
+        },
+    }
+
+    const app = new Vue({
+        el: "#app",
+        store,
+        components: {
+            Counter
+        },
+        template: `
+            <div class="app">
+                <counter></counter>
+            </div>
+        `
+    })
+</script>
+
+</html>
