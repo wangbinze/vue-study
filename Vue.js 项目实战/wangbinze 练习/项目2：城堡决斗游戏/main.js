@@ -4,28 +4,33 @@ new Vue({
     data: state,
     template: `
         <div id="#app">
-           <top-bar :turn="turn" :currentPlayerIndex="currentPlayerIndex" :players="players" />
-           <card :def="testCard" @click.native="handlePlay"/>
-           <hand :cards="testHand" />
+            <top-bar :turn="turn" :current-player-index="currentPlayerIndex" :players="players" />
+            <card :def="testCard" @play="handlePlay"/>
+           <hand :cards="testHand" v-if="!activeOverlay"/>
         </div>
     `,
     mounted() {
         console.log(this.$data === state)
+        
     },
     computed: {
         testCard() {
             return cards.archers
         }
+        
     },
     methods: {
         handlePlay() {
             console.log('你点击了')
         },
+        created() {
+            this.testHand = this.createTestHand()
+        },
         createTestHand() {
             const cards = []
                 //遍历获取卡牌的id
             const ids = Object.keys(cards)
-
+    
             //抽取5张卡牌
             for (let i = 0; i < 5; i++) {
                 cards.push(testDrawCard())
@@ -45,11 +50,9 @@ new Vue({
                 //定义对象
                 def: cards[randomId]
             }
-        }
+        },
     },
-    created() {
-        this.testHand = this.createTestHand()
-    },
+    
 })
 
 window.addEventListener('resize', () => {

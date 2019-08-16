@@ -7,6 +7,9 @@ var currentPlayingCard = null
 
 // The consolidated state of our app
 var state = {
+    //用户界面
+    activeOverlay: null,
+
     // World
     worldRatio: getWorldRatio(),
     // TODO Other things
