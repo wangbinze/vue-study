@@ -19,5 +19,6 @@ var state = {
         { name: '雷思成' }
     ],
     //将随机使用0或1来决定谁先行动
-    currentPlayerIndex: Math.round(Math.random())
+    currentPlayerIndex: Math.round(Math.random()),
+    testHand: [],
 }
