@@ -8,23 +8,25 @@
 </head>
 
 <body>
-    <!-- 页面所需要加载的库-->
+    <!-- vue.js-->
     <script src="../vue.js"></script>
+    <!-- Marked库 -->
     <script src="./marked.js"></script>
 
 
     <!-- Notebook app -->
     <div id="notebook">
 
-        <!-- 侧边栏 -->
+        <!-- 左侧侧边栏 -->
         <aside class="side-bar">
-            <!-- 工具栏 -->
+            <!-- 这里将是笔记列表 -->
             <div class="toolbar">
                 <!-- 添加笔记按钮 -->
-                <button @click="addNote" v-bind:title="notes.length + ' note(s) already'"><i class="material-icons">add</i>Add note</button>
+                <button @click="addNote" :title="notes.length +'条笔记'"><i class="material-icons">add</i>添加笔记</button>
             </div>
             <div class="notes">
-                <!-- 笔记列表在这里显示 -->
+                <!-- 笔记列表显示在这里 -->
+                <div v-for="note in notes" @click="selectNode(note)">{{ note.title }}</div>
             </div>
         </aside>
 
@@ -33,10 +35,10 @@
             <textarea v-model="content"></textarea>
         </section>
 
-        <!-- 预览窗格 -->
+        <!-- 预览面板 -->
         <aside class="preview" v-html="notePreview">
+            {{notePreview}}
         </aside>
-
     </div>
 
     <!-- Some JavaScript -->

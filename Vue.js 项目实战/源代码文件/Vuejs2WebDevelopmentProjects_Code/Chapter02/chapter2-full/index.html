@@ -1,30 +1,32 @@
 <html>
+
 <head>
-  <title>Notebook</title>
-  <!-- Icons & Stylesheets -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+    <title>Notebook</title>
+    <!-- Icons & Stylesheets -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <!-- Include the library in the page -->
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script src="https://unpkg.com/marked"></script>
-  <script src="https://unpkg.com/moment"></script>
+    <!-- Include the library in the page -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/marked"></script>
+    <script src="https://unpkg.com/moment"></script>
 
-  <!-- Notebook app -->
-  <div id="notebook">
+    <!-- Notebook app -->
+    <div id="notebook">
 
-    <!-- Sidebar -->
-    <aside class="side-bar">
-      <div class="toolbar">
-        <button @click="addNote" :title="notes.length + ' note(s) already'"><i class="material-icons">add</i> Add note</button>
-      </div>
-      <div class="notes">
-        <div class="note" v-for="note of sortedNotes" :class="{selected: note === selectedNote}" @click="selectNote(note)"><i class="icon material-icons" v-if="note.favorite">star</i>{{note.title}}</div>
-      </div>
-    </aside>
+        <!-- Sidebar -->
+        <aside class="side-bar">
+            <div class="toolbar">
+                <button @click="addNote" :title="notes.length + ' note(s) already'"><i class="material-icons">add</i> Add note</button>
+            </div>
+            <div class="notes">
+                <div class="note" v-for="note of sortedNotes" @click="selectNote(note)"><i class="icon material-icons" v-if="note.favorite">star</i>{{note.title}}</div>
+            </div>
+        </aside>
 
-    <template v-if="selectedNote">
+        <template v-if="selectedNote">
 
       <!-- Main pane -->
       <section class="main">
@@ -62,9 +64,10 @@
 
     </template>
 
-  </div>
+    </div>
 
-  <!-- Some JavaScript -->
-  <script src="script.js"></script>
+    <!-- Some JavaScript -->
+    <script src="script.js"></script>
 </body>
+
 </html>
