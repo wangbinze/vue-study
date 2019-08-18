@@ -10,6 +10,7 @@ var state = {
     //用户界面
     activeOverlay: null,
 
+
     // World
     worldRatio: getWorldRatio(),
     // TODO Other things

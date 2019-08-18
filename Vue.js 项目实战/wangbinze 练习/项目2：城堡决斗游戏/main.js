@@ -5,19 +5,21 @@ new Vue({
     template: `
         <div id="#app">
             <top-bar :turn="turn" :current-player-index="currentPlayerIndex" :players="players" />
-            <card :def="testCard" @play="handlePlay"/>
-           <hand :cards="testHand" v-if="!activeOverlay"/>
+            <card v-for="card of cards" :def="testCard" @play="handlePlay(card)"/>
+            <transition name="fade">
+                <hand :cards="testHand" v-if="!activeOverlay"/>
+            </transition>
         </div>
     `,
     mounted() {
         console.log(this.$data === state)
-        
+
     },
     computed: {
         testCard() {
             return cards.archers
         }
-        
+
     },
     methods: {
         handlePlay() {
@@ -30,7 +32,7 @@ new Vue({
             const cards = []
                 //遍历获取卡牌的id
             const ids = Object.keys(cards)
-    
+
             //抽取5张卡牌
             for (let i = 0; i < 5; i++) {
                 cards.push(testDrawCard())
@@ -51,8 +53,16 @@ new Vue({
                 def: cards[randomId]
             }
         },
+        handlePlay(card) {
+            this.$emit('card-play', card)
+        },
+        testPlayCard(card) {
+            //讲卡牌从玩家手牌中移除
+            const index = this.testHand.indexOf(card);
+            this.testHand.splice(index, 1)
+        }
     },
-    
+
 })
 
 window.addEventListener('resize', () => {
