@@ -7,14 +7,9 @@ var currentPlayingCard = null
 
 // The consolidated state of our app
 var state = {
-    //用户界面
-    activeOverlay: null,
-
-
     // World
     worldRatio: getWorldRatio(),
     // TODO Other things
-
 
     //游戏
     turn: 1,
@@ -22,7 +17,7 @@ var state = {
         { name: '王彬泽' },
         { name: '雷思成' }
     ],
-    //将随机使用0或1来决定谁先行动
+
+    //Math.round(Math.random())方法将随机使用0或1来决定谁先行动
     currentPlayerIndex: Math.round(Math.random()),
-    testHand: [],
 }
