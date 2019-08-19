@@ -20,4 +20,8 @@ var state = {
 
     //Math.round(Math.random())方法将随机使用0或1来决定谁先行动
     currentPlayerIndex: Math.round(Math.random()),
+
+
+    //测试
+    testHand: []
 }

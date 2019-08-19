@@ -16,12 +16,13 @@ Vue.component('top-bar', {
     created() {
         console.log(this.players)
     },
+
 })
 
 //卡片组件
 Vue.component('card', {
     template: `
-        <div class="card" :class="'type-' +def.type">
+        <div class="card" :class="'type-' +def.type" >
             <div class="title">{{ def.title }}</div>
             <img class="separator" src="svg/card-separator.svg"/>
             <div class="description">
@@ -31,5 +32,25 @@ Vue.component('card', {
     `,
     props: [
         'def'
+    ],
+    methods: {
+        play() {
+            this.$emit('play')
+        }
+    },
+})
+
+//手牌
+Vue.component('hand', {
+    template: `
+        <div class="hand">
+            <div class="wrapper">
+                <!-- 卡牌 -->
+                <card v-for="card of cards" :def="card.def" />
+            </div>
+        </div>
+    `,
+    props: [
+        'cards'
     ],
 })
