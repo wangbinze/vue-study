@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb6fa6b8-0e7c-4b1f-9616-c38e491e6dd1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vue-study.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vue-study.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vue学习笔记2019.08.md" beforeDir="false" afterPath="$PROJECT_DIR$/Vue学习笔记2019.08.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/学习完基础后所做的/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/学习完基础后所做的/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/网页练习/demo1/demo1.html" beforeDir="false" afterPath="$PROJECT_DIR$/网页练习/demo1/demo1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vue.js 项目实战/wangbinze 练习/项目3：支持中心/support-center/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Vue.js 项目实战/wangbinze 练习/项目3：支持中心/support-center/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vue.js 项目实战/wangbinze 练习/项目3：支持中心/support-center/src/components/AppLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Vue.js 项目实战/wangbinze 练习/项目3：支持中心/support-center/src/components/AppLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vue.js 项目实战/wangbinze 练习/项目3：支持中心/support-center/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/Vue.js 项目实战/wangbinze 练习/项目3：支持中心/support-center/src/main.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -76,7 +74,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -88,6 +85,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -143,6 +141,7 @@
       <workItem from="1559289206338" duration="2536000" />
       <workItem from="1565144670824" duration="1245000" />
       <workItem from="1565579762444" duration="33000" />
+      <workItem from="1566461823024" duration="83000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1557136336479</created>
@@ -232,7 +231,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47256000" />
+    <option name="totallyTimeSpent" value="47339000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1057" extended-state="0" />
@@ -393,6 +392,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vue.js 项目实战/源代码文件/Vuejs2WebDevelopmentProjects_Code/Chapter05/chapter5-full/server/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
