@@ -110,7 +110,7 @@
 
 <div id="app">
   <h4>物件寫法</h4>
-  <div class="box"></div>
+  <div class="box" v-bind:class="{'rotate':isTransform,'bg-danger':boxColor}"></div>
   <p>請為此元素加上動態 className</p>
   <hr>
   <button class="btn btn-outline-primary" v-on:click="isTransform = !isTransform">選轉物件</button>
