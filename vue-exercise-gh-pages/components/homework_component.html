@@ -7,9 +7,15 @@
     <link href="images/favicon.ico" rel="shortcut icon">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/stylesheets/all.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/regular.js" integrity="sha384-t7yHmUlwFrLxHXNLstawVRBMeSLcXTbQ5hsd0ifzwGtN7ZF7RZ8ppM7Ldinuoiif" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js"
+        integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/regular.js"
+        integrity="sha384-t7yHmUlwFrLxHXNLstawVRBMeSLcXTbQ5hsd0ifzwGtN7ZF7RZ8ppM7Ldinuoiif"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js"
+        integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c"
+        crossorigin="anonymous"></script>
     <script src="/javascripts/vendor.js"></script>
 
 </head>
@@ -17,9 +23,10 @@
 <body class="bg-lighter">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="/">Vue.js 練習手冊</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
@@ -51,62 +58,62 @@
 
 
                     <a href="/components/basic.html" class="btn btn-block btn-link">
-            基礎元件
-          </a>
+                        基礎元件
+                    </a>
 
 
 
                     <a href="/components/function_return.html" class="btn btn-block btn-link">
-            元件必須使用 function return
-          </a>
+                        元件必須使用 function return
+                    </a>
 
 
 
                     <a href="/components/prop_basic.html" class="btn btn-block btn-link">
-            由外到內的資料傳遞
-          </a>
+                        由外到內的資料傳遞
+                    </a>
 
 
 
                     <a href="/components/prop_adv.html" class="btn btn-block btn-link">
-            Props 注意事項
-          </a>
+                        Props 注意事項
+                    </a>
 
 
 
                     <a href="/components/prop_type.html" class="btn btn-block btn-link">
-            Props 的型別
-          </a>
+                        Props 的型別
+                    </a>
 
 
 
                     <a href="/components/emit.html" class="btn btn-block btn-link">
-            向外層傳送事件(Data)
-          </a>
+                        向外層傳送事件(Data)
+                    </a>
 
 
 
                     <a href="/components/slot.html" class="btn btn-block btn-link">
-            Slot 插槽替換
-          </a>
+                        Slot 插槽替換
+                    </a>
 
 
 
                     <a href="/components/is.html" class="btn btn-block btn-link">
-            動態組建切換
-          </a>
+                        動態組建切換
+                    </a>
 
 
 
                     <a href="/components/eventbus.html" class="btn btn-block btn-link">
-            Event Bus
-          </a>
+                        Event Bus
+                    </a>
 
 
 
                     <a href="/components/homework_component.html" class="btn btn-block btn-primary active">
-            作業練習：元件變換
-          </a>
+                        作業練習：元件變換
+                    </a>
 
 
                 </div>
@@ -130,11 +137,13 @@
                 </div>
 
                 <div id="app">
+                    <select name="" id="" class="form-control mb-3" :value="this.city">
+                        <option value="" disabled selected="selected">--- 请选择城市 ---</option>
+                        <option :value="item.SiteId" v-for="item in countyList"> {{item.County}}--{{item.SiteName}}
+                        </option>
+                    </select>
+                    </select>
 
-                    <select name="" id="" class="form-control mb-3">
-            <option value="">--- 請選擇城市 ---</option>
-            <option :value="item.SiteId" v-for="item in countyList">{{item.SiteName}} - {{item.County}}</option>
-          </select>
                     <div>
                         <h4>關注城市</h4>
                         <div class="card-columns">
@@ -156,17 +165,17 @@
 
                     <hr>
                     <div class="card-columns">
-                        <div class="card status-aqi2">
-                            <div class="card-header">苗栗縣 - 三義
+                        <div class="card" v-for="item in countyList" :class="classObject">
+                            <div class="card-header">{{item.County}}--{{item.SiteName}}
                                 <a href="#" class="float-right"><i class="far fa-star"></i></a>
                             </div>
                             <div class="card-body">
                                 <ul class="list-unstyled">
-                                    <li>AQI 指數: 54</li>
-                                    <li>PM2.5: 8</li>
-                                    <li>說明: 普通</li>
+                                    <li>AQI 指數: {{item.AQI}}</li>
+                                    <li>PM10:{{item.PM10}}</li>
+                                    <li>說明: {{item.Status}}</li>
                                 </ul>
-                                2018-05-20 16:00
+                                {{item.PublishTime}}
                             </div>
                         </div>
                     </div>
@@ -179,7 +188,9 @@
                     var app = new Vue({
                         el: '#app',
                         data: {
-                            data: [],
+                            data: [{
+
+                            }],
                             location: [],
                             stared: [],
                             filter: '',
@@ -188,7 +199,8 @@
 
                         mounted() {
                             this.getData()
-
+                            // uniqueList()
+                            // console.log(r)
                         },
                         // 請在此撰寫 JavaScript
                         methods: {
@@ -197,12 +209,31 @@
                                 const api = 'http://opendata2.epa.gov.tw/AQI.json';
 
                                 // 使用 jQuery ajax
-                                $.get(api).then(function(response) {
+                                $.get(api).then(function (response) {
                                     vm.countyList = response;
-                                    console.log(vm)
+                                    var countyList1 = vm.countyList;
+
+                                    //数组去重
+                                    // function uniqueList(countyList1) {
+                                    //     var r = [];
+                                    //     for (var i = 0, l = countyList1.length; i < l; i++) {
+                                    //         for (var j = i + 1; j < l; j++)
+                                    //             //关键在这里
+                                    //             if (JSON.stringify(countyList1[i]) == JSON.stringify(countyList1[j])) j = ++i;
+                                    //         r.push(countyList1[i]);
+                                    //     }
+                                    //     return r;
+                                    // }
+                            
                                 });
                             },
-                        }
+
+                        },
+                        computed: {
+                            classObject: function () {
+                                console.log(1)
+                            }
+                        },
                     });
                 </script>
                 <!-- 
@@ -218,19 +249,19 @@
                     .status-aqi2 {
                         background-color: #ffff00;
                     }
-                    
+
                     .status-aqi3 {
                         background-color: #ff7e00;
                     }
-                    
+
                     .status-aqi4 {
                         background-color: #ff0000;
                     }
-                    
+
                     .status-aqi5 {
                         background-color: #8f3f97;
                     }
-                    
+
                     .status-aqi6 {
                         background-color: #7e0023;
                     }
