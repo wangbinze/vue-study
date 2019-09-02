@@ -7,15 +7,9 @@
     <link href="images/favicon.ico" rel="shortcut icon">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/stylesheets/all.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js"
-        integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l"
-        crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/regular.js"
-        integrity="sha384-t7yHmUlwFrLxHXNLstawVRBMeSLcXTbQ5hsd0ifzwGtN7ZF7RZ8ppM7Ldinuoiif"
-        crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js"
-        integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c"
-        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/regular.js" integrity="sha384-t7yHmUlwFrLxHXNLstawVRBMeSLcXTbQ5hsd0ifzwGtN7ZF7RZ8ppM7Ldinuoiif" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
     <script src="/javascripts/vendor.js"></script>
 
 </head>
@@ -23,8 +17,7 @@
 <body class="bg-lighter">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="/">Vue.js 練習手冊</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
@@ -139,7 +132,7 @@
                 <div id="app">
                     <select name="" id="" class="form-control mb-3" :value="this.city">
                         <option value="" disabled selected="selected">--- 请选择城市 ---</option>
-                        <option :value="item.SiteId" v-for="item in countyList"> {{item.County}}--{{item.SiteName}}
+                        <option :value="item.SiteId" v-for="item in countyList"> {{item.County}}
                         </option>
                     </select>
                     </select>
@@ -162,17 +155,17 @@
                             </div>
                         </div>
                     </div>
-
+                    <!--  :style="{backgroundColor: 20 >item.AQI > 0 ? 'red' : '' }" -->
                     <hr>
                     <div class="card-columns">
-                        <div class="card" v-for="item in countyList" :class="classObject">
+                        <div class="card" v-for="item in items" :class="">
                             <div class="card-header">{{item.County}}--{{item.SiteName}}
                                 <a href="#" class="float-right"><i class="far fa-star"></i></a>
                             </div>
                             <div class="card-body">
                                 <ul class="list-unstyled">
                                     <li>AQI 指數: {{item.AQI}}</li>
-                                    <li>PM10:{{item.PM10}}</li>
+                                    <li>PM2.5:{{item['PM2.5']}}</li>
                                     <li>說明: {{item.Status}}</li>
                                 </ul>
                                 {{item.PublishTime}}
@@ -188,19 +181,18 @@
                     var app = new Vue({
                         el: '#app',
                         data: {
-                            data: [{
-
-                            }],
+                            data: [{}],
                             location: [],
                             stared: [],
                             filter: '',
                             countyList: [],
+                            countyList1: [],
+                            countyList2: [],
+                            items: []
                         },
 
                         mounted() {
                             this.getData()
-                            // uniqueList()
-                            // console.log(r)
                         },
                         // 請在此撰寫 JavaScript
                         methods: {
@@ -209,59 +201,68 @@
                                 const api = 'http://opendata2.epa.gov.tw/AQI.json';
 
                                 // 使用 jQuery ajax
-                                $.get(api).then(function (response) {
-                                    vm.countyList = response;
-                                    var countyList1 = vm.countyList;
+                                $.get(api).then(function(response) {
+                                    // vm.countyList = response;
+                                    // vm.countyList2 = response;
+                                    // console.log(countyList2)
+                                    vm.items = response;
+                                    console.log(vm.items)
+                                        //数组去重
+                                    function uniqueList(countyList1) {
+                                        var r = [];
+                                        for (var i = 0, l = countyList1.length; i < l; i++) {
+                                            var inR = false
+                                            for (var m = 0, n = r.length; m < n; m++) {
+                                                if (countyList1[i].County === r[m].County) {
+                                                    inR = true
+                                                        // return false
+                                                } else {
 
-                                    //数组去重
-                                    // function uniqueList(countyList1) {
-                                    //     var r = [];
-                                    //     for (var i = 0, l = countyList1.length; i < l; i++) {
-                                    //         for (var j = i + 1; j < l; j++)
-                                    //             //关键在这里
-                                    //             if (JSON.stringify(countyList1[i]) == JSON.stringify(countyList1[j])) j = ++i;
-                                    //         r.push(countyList1[i]);
-                                    //     }
-                                    //     return r;
-                                    // }
-                            
+                                                }
+                                            }
+                                            if (!inR) {
+                                                r.push(countyList1[i]);
+                                            }
+                                            // console.log(r, inR, countyList1, '227')
+                                        }
+                                        console.log(r, '228')
+                                        return r;
+                                    }
+                                    console.log(uniqueList(response), '231')
+                                    vm.countyList = uniqueList(response)
+
                                 });
                             },
+                        },
 
-                        },
-                        computed: {
-                            classObject: function () {
-                                console.log(1)
-                            }
-                        },
                     });
                 </script>
                 <!-- 
 狀態對應表
 '良好',
-'status-aqi2' '普通',
-'status-aqi3' '對敏感族群不健康',
-'status-aqi4' '對所有族群不健康',
-'status-aqi5' '非常不健康',
-'status-aqi6' '危害'
+'status-aqi2' '普通', 0 - 20
+'status-aqi3' '對敏感族群不健康', 20 -40
+'status-aqi4' '對所有族群不健康', 40 -60
+'status-aqi5' '非常不健康', 60 -80
+'status-aqi6' '危害' > 80
 -->
                 <style>
                     .status-aqi2 {
                         background-color: #ffff00;
                     }
-
+                    
                     .status-aqi3 {
                         background-color: #ff7e00;
                     }
-
+                    
                     .status-aqi4 {
                         background-color: #ff0000;
                     }
-
+                    
                     .status-aqi5 {
                         background-color: #8f3f97;
                     }
-
+                    
                     .status-aqi6 {
                         background-color: #7e0023;
                     }
