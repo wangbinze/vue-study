@@ -139,26 +139,37 @@
                     // # 物件函式縮寫
                     // 縮寫以下 showPosture Function
                     // const newTeam = {
-                    //   // ...
-                    //   showPosture: function () {
-                    //     console.log('我們是 基紐特戰隊')
-                    //   }
+                    //     // ...
+                    //     // showPosture: function() {
+                    //     //     console.log('我們是 基紐特戰隊')
+                    //     // }
+                    //     showPosture() {
+                    //         console.log('我們是 基紐特戰隊')
+                    //     }
                     // }
 
                     // # 搭配解構使用
                     // 將以下物件指向賦予到另一個物件上，並且避免參考
-                    // const GinyuTeam = {
-                    //   Ginyu: {
-                    //     name: '基紐'
-                    //   },
-                    //   Jeice: {
-                    //     name: '吉斯'
-                    //   },
-                    //   burter: { 
-                    //     name: '巴特'
-                    //   },
-                    //   // ...
-                    // }
+                    const GinyuTeam = {
+                        Ginyu: {
+                            name: '基紐'
+                        },
+                        Jeice: {
+                            name: '吉斯'
+                        },
+                        burter: {
+                            name: '巴特'
+                        },
+                        // ...
+                    }
+
+                    // const newTeam = GinyuTeam;
+                    const newTeam = {
+                        ...GinyuTeam
+                    }
+
+                    newTeam.ming = '小明';
+                    console.log(newTeam, GinyuTeam)
                 </script>
             </div>
         </div>
