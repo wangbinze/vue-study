@@ -11,6 +11,11 @@ export default new VueRouter({
             name:'首页',    //组件呈现的名称
             path:'/index',    //对应的虚拟路径
             component: Home, //对应的组件
-        }
+        },
+        // {
+        //     name:'',
+        //     path:'',
+        //     component:,
+        // }
     ]
 })
