@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+    <router-view></router-view>
     <!-- <h1>这是app的h1</h1>
     <div class="card" style="width:18rem;">
       <div class="card-body">
