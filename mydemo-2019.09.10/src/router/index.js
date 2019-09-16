@@ -10,13 +10,14 @@ import child3 from '@/components/pages/child3';
 Vue.use(VueRouter);
 
 export default new VueRouter({
+    // mode: 'history',
     routes: [{
             name: '首页', //组件呈现的名称
             path: '/index', //对应的虚拟路径
             component: Home, //对应的组件
         },
         {
-            name: '分页',
+            // name: '分页',
             path: '/page',
             component: Page,
             children: [{
@@ -31,7 +32,7 @@ export default new VueRouter({
                 },
                 {
                     name: '卡片3', //组件呈现的名称
-                    path: 'child3', //对应的虚拟路径
+                    path: 'child/:id', //对应的虚拟路径
                     component: child3, //对应的组件
                 }
             ]
