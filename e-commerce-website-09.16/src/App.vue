@@ -12,7 +12,7 @@ export default {
     const api = "https://vue-course-api.herokuapp.com/api/binzetest/products";
     //api伺服器路径
     //所申请的APIPath
-    this.$http.get(api).then(response => {
+    this.$http.get(api).then((response) => {
       console.log(response.data);
     });
   }

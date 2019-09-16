@@ -6,6 +6,8 @@ import App from './App.vue'
 
 Vue.use(VueAxios, axios)
 
+axios.defaults.withCredentials = true
+
 Vue.config.productionTip = false
 
 new Vue({
