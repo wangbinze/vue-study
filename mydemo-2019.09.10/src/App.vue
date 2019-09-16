@@ -1,16 +1,24 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-    <router-view></router-view>
-    <!-- <h1>这是app的h1</h1>
-    <div class="card" style="width:18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">111111111111111111111222222</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <router-link class="nav-link" to="/index">Home</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/page">Page</router-link>
+          </li>
+          <li class="nav-item active">
+            <router-link class="nav-link" :to="{name:'首页'}">Home</router-link>
+          </li>
+        </ul>
       </div>
-    </div> -->
+    </nav>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -32,7 +40,7 @@ export default {
 
 <style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
