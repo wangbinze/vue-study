@@ -1,5 +1,9 @@
 <template>
   <div>
+    <div class="vld-parent">
+      <!-- 等待动画 -->
+      <loading :active.sync="isLoading"></loading>
+    </div>
     <div class="text-right mt-4">
       <button class="btn btn-primary" @click="openModel(true)">建立新的产品</button>
     </div>
@@ -67,15 +71,22 @@
                 <div class="form-group">
                   <label for="customFile">
                     或 上传图片
-                    <i class="fas fa-spinner fa-spin"></i>
+                    <i class="fas fa-spinner fa-spin" v-if="status.fileUploading"></i>
                   </label>
-                  <input type="file" id="customFile" class="form-control" ref="files" />
-                  <!-- <img
-                    img="https://img.zcool.cn/community/0145185615dd766ac7255b14772555.jpg@1280w_1l_0o_100sh.jpg"
-                    class="img-fluid"
-                    alt="示例"
-                  />-->
+                  <input
+                    type="file"
+                    id="customFile"
+                    class="form-control"
+                    ref="files"
+                    @change="uploadFile"
+                  />
                 </div>
+                <img
+                  img="https://img.zcool.cn/community/0145185615dd766ac7255b14772555.jpg@1280w_1l_0o_100sh.jpg"
+                  class="img-fluid"
+                  :src="tempProduct.image"
+                  alt="示例"
+                />
               </div>
 
               <!-- 右侧 -->
@@ -212,7 +223,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -223,15 +233,21 @@ export default {
     return {
       products: [],
       tempProduct: {},
-      isNew: false
+      isNew: false,
+      isLoading: false,
+      status: {
+        fileUploading: false
+      }
     };
   },
   methods: {
     getProducts() {
       const api = "https://vue-course-api.herokuapp.com/api/binzetest/products";
       const vm = this;
+      vm.isLoading = true;
       this.$http.get(api).then(response => {
         console.log(response.data);
+        vm.isLoading = false;
         vm.products = response.data.products;
       });
     },
@@ -247,18 +263,18 @@ export default {
     },
     // 删除
     openDelModel(item) {
-        $("#deleteModal").modal("show");
-        this.tempProduct=Object.assign({},item)
+      $("#deleteModal").modal("show");
+      this.tempProduct = Object.assign({}, item);
     },
-    delProduct(){
-        const vm = this;
-        const url = `https://vue-course-api.herokuapp.com/api/binzetest/admin/product/${vm.tempProduct.id}`;
-        this.$http.delete(url).then((response)=>{
-            console.log(response,vm.tempProduct);
-            $("#deleteModal").modal("hide");
-            vm.isLoading=false;
-            this.getProducts();
-        })
+    delProduct() {
+      const vm = this;
+      const url = `https://vue-course-api.herokuapp.com/api/binzetest/admin/product/${vm.tempProduct.id}`;
+      this.$http.delete(url).then(response => {
+        console.log(response, vm.tempProduct);
+        $("#deleteModal").modal("hide");
+        vm.isLoading = false;
+        this.getProducts();
+      });
     },
     // 新增和修改
     updateProduct() {
@@ -281,10 +297,39 @@ export default {
           console.log("新增失败");
         }
       });
+    },
+    // 上传图片的
+    uploadFile() {
+      console.log(this);
+      const uploadFile = this.$refs.files.files[0];
+      const vm = this;
+      const formData = new FormData();
+      formData.append("file-to-upload", uploadFile);
+      const url = `https://vue-course-api.herokuapp.com/api/binzetest/admin/upload`;
+      vm.status.fileUploading = true;
+      this.$http
+        .post(url, formData, {
+          header: {
+            "Content-Type": "multipart/form-data"
+          }
+        })
+        .then(response => {
+          console.log(response.data);
+          vm.status.fileUploading = false;
+          if (response.data.success) {
+            //   vm.tempProduct.imageUrl = response.data.imageUrl;
+            //   console.log(vm.tempProduct);
+            // vm.$set(vm.tempProduct, "imageUrl", response.data.imageUrl);
+            vm.$set(vm.tempProduct, "image", response.data.imageUrl);
+          } else {
+            this.$bus.$emit("message:push", response.data.message, "danger");
+          }
+        });
     }
   },
   created() {
     this.getProducts();
+    // this.$bus.$emit('message:push','这是一段讯息','success')
   }
 };
 </script>
