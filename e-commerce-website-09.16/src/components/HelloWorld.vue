@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
-    <!-- <h1>{{ msg }}</h1> -->
+    <h1>{{ msg }}</h1>
+    <p>{{msg1}}</p>
     <a href="#" @click.prevent="signout">登出</a>
   </div>
 </template>
@@ -10,7 +11,8 @@ export default {
   name: 'HelloWorld',
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      msg: "Welcome to Your Vue.js App",
+      msg1:"by wangbinze"
     }
   },
   methods: {
