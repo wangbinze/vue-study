@@ -22,9 +22,33 @@
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
-            <router-link class="nav-link" to="/admin/products">
-              <span data-feather="file-text"></span>
-              <i class="fas fa-box-open"></i>产品列表
+            <router-link
+              class="nav-link"
+              to="/admin/products"
+              :class="{'active': this.$route.path == `/admin/products`}"
+            >
+              <i class="fas fa-box-open"></i>
+              产品列表
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link
+              class="nav-link"
+              to="/admin/orders"
+              :class="{'active': this.$route.path == `/admin/orders`}"
+            >
+              <i class="fas fa-clipboard-list"></i>
+              订单列表
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link
+              class="nav-link"
+              to="/admin/coupons"
+              :class="{'active': this.$route.path == `/admin/coupons`}"
+            >
+              <i class="fas fa-ticket-alt"></i>
+              优惠券
             </router-link>
           </li>
         </ul>
@@ -39,10 +63,14 @@
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
+            <router-link
+              to="/customer_order"
+              class="nav-link"
+              :class="{'active': this.$route.path == `/customer_order`}"
+            >
+              <i class="fas fa-shopping-cart"></i>
               模拟订单
-            </a>
+            </router-link>
           </li>
         </ul>
       </div>

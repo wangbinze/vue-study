@@ -3,22 +3,30 @@ import axios from 'axios' //主要的ajax套件
 import VueAxios from 'vue-axios' //将它转为Vue的套件
 // Import component
 import Loading from 'vue-loading-overlay'
+import VeeValidate from 'vee-validate'
 // Import stylesheet
 import 'vue-loading-overlay/dist/vue-loading.css'
 import 'bootstrap';
+import zhCNValidate from 'vee-validate/dist/locale/zh_chinese'
+
 import router from './router'
 import App from './App.vue'
 import './bus'
 import currencyFilter from './filters/currency'
 
-Vue.use(VueAxios, axios)
 
-axios.defaults.withCredentials = true
+
 
 Vue.config.productionTip = false
 
+Vue.use(VueAxios, axios);
+Vue.use(VeeValidate);
+VeeValidate.Validator.localize('zh_CN', zhCNValidate);
+
 Vue.component('Loading', Loading);
 Vue.filter('currency', currencyFilter);
+
+axios.defaults.withCredentials = true // 存在cookie里数据
 
 new Vue({
     render: h => h(App),
