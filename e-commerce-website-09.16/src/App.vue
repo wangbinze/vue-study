@@ -16,6 +16,9 @@ export default {
   //     console.log(response.data);
   //   });
   // }
+  created() {
+    console.log(process.env.VUE_APP_API)
+  },
 };
 </script>
 
