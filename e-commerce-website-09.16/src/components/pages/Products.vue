@@ -278,7 +278,7 @@ export default {
   },
   methods: {
     getProducts(page = 1) {
-      const api = `https://vue-course-api.herokuapp.com/api/binzetest/products?page=${page}`;
+      const api = `${process.env.VUE_APP_API_BASE_URLSSS}/api/binzetest/products?page=${page}`;
       const vm = this;
       vm.isLoading = true;
       this.$http.get(api).then(response => {
@@ -305,7 +305,7 @@ export default {
     },
     delProduct() {
       const vm = this;
-      const url = `https://vue-course-api.herokuapp.com/api/binzetest/admin/product/${vm.tempProduct.id}`;
+      const url = `${process.env.VUE_APP_API_BASE_URLSSS}/api/binzetest/admin/product/${vm.tempProduct.id}`;
       this.$http.delete(url).then(response => {
         console.log(response, vm.tempProduct);
         $("#deleteModal").modal("hide");

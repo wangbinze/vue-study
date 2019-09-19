@@ -18,6 +18,7 @@ export default {
   // }
   created() {
     console.log(process.env.VUE_APP_API)
+    console.log(process.env.VUE_APP_API_BASE_URLSSS)
   },
 };
 </script>
