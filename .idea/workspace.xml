@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb6fa6b8-0e7c-4b1f-9616-c38e491e6dd1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Vue.js 项目实战/wangbinze 练习/项目3：支持中心/support-center/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Vue.js 项目实战/wangbinze 练习/项目3：支持中心/support-center/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vue.js 项目实战/wangbinze 练习/项目3：支持中心/support-center/src/components/AppLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Vue.js 项目实战/wangbinze 练习/项目3：支持中心/support-center/src/components/AppLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vue.js 项目实战/wangbinze 练习/项目3：支持中心/support-center/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/Vue.js 项目实战/wangbinze 练习/项目3：支持中心/support-center/src/main.js" afterDir="false" />
-    </list>
+    <list default="true" id="cb6fa6b8-0e7c-4b1f-9616-c38e491e6dd1" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -74,18 +70,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="vue-study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue-study" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -95,7 +81,7 @@
     <property name="js.meteor.library.cached" value="$PROJECT_DIR$/Vue.js 项目实战/源代码文件/Vuejs2WebDevelopmentProjects_Code/chapter08/.meteor" />
     <property name="js.meteor.library.was.enabled" value="true" />
     <property name="js.meteor.project" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="Z:/04-PERSONAL/06-WBZ/3d展示" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -142,6 +128,7 @@
       <workItem from="1565144670824" duration="1245000" />
       <workItem from="1565579762444" duration="33000" />
       <workItem from="1566461823024" duration="83000" />
+      <workItem from="1568962097309" duration="113000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1557136336479</created>
@@ -231,7 +218,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47339000" />
+    <option name="totallyTimeSpent" value="47452000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1057" extended-state="0" />
@@ -388,13 +375,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello-world/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/hello-world/package.json" />
     <entry file="file://$PROJECT_DIR$/Vue.js 项目实战/源代码文件/Vuejs2WebDevelopmentProjects_Code/Chapter05/chapter5-full/server/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
