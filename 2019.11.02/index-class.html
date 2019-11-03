@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="abc" :class="{'wangbinze':sss}"></div>
+        <div v-bind:class="classObject"></div>
+        <div :class="[activeClass,errorClass]"></div>
+        <div :style="{color:activeColor,fontSize:fontSize+'px'}">xxx</div>
+        <div :style="styleObject">sssssss</div>
+        <div v-if="awesome">我是v-if写的哟</div>
+        <div v-else>Oh no,上面那个显示我就不显示</div>
+        <div v-show="show">我是v-show写的哟</div>
+        <div v-if="Math.random() > 0.5">
+            Now you see me
+        </div>
+        <div v-else>
+            Now you don't
+        </div>
+        <div v-if="type === 'A'">
+            A
+        </div>
+        <div v-else-if="type === 'B'">
+            B
+        </div>
+        <div v-else-if="type === 'C'">
+            C
+        </div>
+        <div v-else>
+            Not A/B/C
+        </div>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data() {
+            return {
+                isActive: true,
+                error: null,
+                sss: true,
+                activeClass: 'active1',
+                errorClass: 'text-danger1',
+                activeColor: 'red',
+                fontSize: 30,
+                styleObject: {
+                    color: 'red',
+                    fontSize: '15px'
+                },
+                awesome: true,
+                show: true,
+                type:'1',
+            }
+        },
+        computed: {
+            classObject: function () {
+                return {
+                    active: this.isActive && !this.error,
+                    'text-danger': this.error && this.error.type === 'fatal'
+                }
+            }
+        },
+    })
+</script>
+
+</html>
