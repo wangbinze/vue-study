@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>变色字体</title>
+    <style>
+        #app {
+            margin: 5em auto;
+        }
+        
+        .text {
+            text-align: center;
+            background: -webkit-gradient(linear, left top, right top, from(#ff8a00), to(#e52e71));
+            background: linear-gradient(to right, #ff8a00, #e52e71);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+            text-shadow: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1 class="text">我是王彬泽，来自重庆</h1>
+    </div>
+</body>
+
+</html>

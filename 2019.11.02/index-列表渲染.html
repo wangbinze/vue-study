@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in items">
+                {{item.message}}
+            </li>
+            <li v-for="(item, index) in items1">
+                {{ parentMessage }} - {{ index }} - {{ item.message }}
+            </li>
+        </ul>
+        <ul id="v-for-object" class="demo">
+            <li v-for="(value,name,index) in object">
+                {{index}}.{{name}}:{{ value }}
+            </li>
+            <p>sss</p>
+            <li v-for="n in evenNumbers">{{n}}</li>
+        </ul>
+        <div>
+            <span v-for="n in 10">{{ n }} </span>
+        </div>
+        <todo-item></todo-item>
+    </div>
+</body>
+<script>
+    Vue.component('todo-item', {
+        template: '\
+            <li>\
+            {{ title }}\
+            <button v-on:click="$emit(\'remove\')">Remove</button>\
+            </li>\
+        ',
+        props: ['title']
+    })
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            items: [{
+                message: 'wang'
+            }, {
+                message: 'binze'
+            }],
+            parentMessage: '名字',
+            items1: [{
+                message: 'wangbinze'
+            }, {
+                message: 'wangpingping'
+            }],
+            object: {
+                title: 'how to do lists in Vue',
+                author: 'wang binze',
+                publishedAt: '2019-11-04'
+            },
+            userProfile: {
+                name: 'Anika'
+            },
+            numbers: [1, 2, 3, 4, 5],
+            newTodoText: '',
+            todos: [{
+                id: 1,
+                title: 'Do the dishes',
+            }, {
+                id: 2,
+                title: 'Take out the trash',
+            }, {
+                id: 3,
+                title: 'Mow the lawn'
+            }],
+            nextTodoId: 4,
+        },
+        computed: {
+            evenNumbers: function() {
+                return this.numbers.filter(function(number) {
+                    return number % 2 === 0
+                })
+            }
+        },
+        methods: {
+            addNewTodo: function() {
+                this.todos.push({
+                    id: this.nextTodoId++,
+                    title: this.newTodoText
+                })
+                this.newTodoText = ''
+            }
+        }
+    })
+    Vue.set(vm.userProfile, 'age', 27)
+    vm.userProfile = Object.assign({}, vm.userProfile, {
+        age: 28,
+        favoriteColor: 'Vue Green'
+    })
+</script>
+
+</html>
