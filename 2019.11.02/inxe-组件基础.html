@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件基础-props向子组件传递数据</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <blog-post title="My journey with Vue"></blog-post>
+        <blog-post title="Blogging with Vue"></blog-post>
+        <blog-post title="Why Vue is so fun"></blog-post>
+    </div>
+</body>
+<script>
+    Vue.component('blog-post', {
+        props: ['title'],
+        template: '<h1>{{title}}</h1>'
+    })
+    let vm = new Vue({
+        el: "#app"
+    })
+</script>
+
+</html>
