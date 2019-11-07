@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>混入</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    var Profile = Vue.extend({
+        template: '<p>{{firstName}} {{lastName}} aka {{alias}}</p>',
+        data: function() {
+            return {
+                firstName: 'Walter',
+                lastName: 'White',
+                alias: 'Heisenberg'
+            }
+        }
+    });
+    // 创建 Profile 实例，并挂载到一个元素上。  
+    // new Profile().$mount('#mount-point');
+    var myMixin = {
+        template: '<h1>holle mixin</h1>',
+        methods: {
+            hello: function() {
+                console.log('this is mixin')
+            },
+            say: function() {
+                console.log('I am mixin')
+            }
+        }
+    };
+    var Component = Vue.extend({
+        mixins: [myMixin],
+        methods: {
+            lsit: function() {
+                console.log('I am lsit')
+            },
+            say: function() {
+                console.log('I am mixin say')
+            }
+        }
+    });
+    var newcom = new Component().$mount('#app');
+    newcom.hello();
+    newcom.lsit();
+    newcom.say();
+</script>
+
+</html>
